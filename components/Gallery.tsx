@@ -41,7 +41,7 @@ export default function Gallery({ images }: GalleryProps) {
           <button
             key={index}
             onClick={() => openLightbox(index)}
-            className="relative aspect-square overflow-hidden bg-gray-100 cursor-pointer group"
+            className="relative aspect-square overflow-hidden bg-white/5 cursor-pointer group"
           >
             <Image
               src={image.image_url}
@@ -49,7 +49,7 @@ export default function Gallery({ images }: GalleryProps) {
               fill
               className="object-cover transition-transform duration-300 group-hover:scale-105"
             />
-            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors" />
+            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors" />
           </button>
         ))}
       </div>

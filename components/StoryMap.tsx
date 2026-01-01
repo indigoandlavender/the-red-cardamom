@@ -137,7 +137,7 @@ export default function StoryMap({ stories }: StoryMapProps) {
 
     map.current = new mapboxgl.Map({
       container: mapContainer.current,
-      style: 'mapbox://styles/mapbox/light-v11',
+      style: 'mapbox://styles/mapbox/dark-v11',
       center: [50, 25], // Center on Middle East/Central Asia
       zoom: 2.5,
       minZoom: 1.5,
@@ -170,7 +170,7 @@ export default function StoryMap({ stories }: StoryMapProps) {
         el.className = 'story-marker';
         el.innerHTML = `
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-            <circle cx="12" cy="12" r="8" fill="#8b2500" stroke="#faf8f5" stroke-width="2"/>
+            <circle cx="12" cy="12" r="8" fill="#c4632d" stroke="#0a0a0a" stroke-width="2"/>
           </svg>
         `;
         el.style.cursor = 'pointer';
@@ -181,14 +181,14 @@ export default function StoryMap({ stories }: StoryMapProps) {
           closeOnClick: false,
           className: 'story-popup',
         }).setHTML(`
-          <div style="padding: 8px 12px; max-width: 200px;">
-            <p style="font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; color: #8b2500; margin-bottom: 4px;">
+          <div style="padding: 12px 16px; max-width: 220px; background: #0a0a0a; border: 1px solid rgba(255,255,255,0.1);">
+            <p style="font-size: 10px; text-transform: uppercase; letter-spacing: 0.15em; color: rgba(255,255,255,0.4); margin-bottom: 6px;">
               ${story.category}
             </p>
-            <p style="font-family: 'Libre Baskerville', serif; font-size: 14px; font-weight: 500; margin-bottom: 4px;">
+            <p style="font-family: 'Libre Baskerville', serif; font-size: 15px; font-weight: 400; color: white; margin-bottom: 6px;">
               ${story.title}
             </p>
-            <p style="font-size: 12px; color: #666;">
+            <p style="font-size: 11px; color: rgba(255,255,255,0.5);">
               ${story.country}
             </p>
           </div>
