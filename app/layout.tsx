@@ -1,11 +1,11 @@
 import type { Metadata } from 'next'
-import { Playfair_Display, Space_Grotesk } from 'next/font/google'
+import { Cormorant_Garamond, Space_Grotesk } from 'next/font/google'
 import './globals.css'
 
-// Playfair Display for titles
-const playfair = Playfair_Display({
+// Cormorant Garamond - tall, elegant serif like Kinfolk
+const cormorant = Cormorant_Garamond({
   subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
+  weight: ['300', '400', '500', '600', '700'],
   style: ['normal', 'italic'],
   display: 'swap',
   variable: '--font-serif',
@@ -52,7 +52,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${playfair.variable} ${spaceGrotesk.variable}`}>
+    <html lang="en" className={`${cormorant.variable} ${spaceGrotesk.variable}`}>
       <body className="antialiased">{children}</body>
     </html>
   )

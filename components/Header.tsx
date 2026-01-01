@@ -7,55 +7,49 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="bg-white border-b border-gray-200">
-      <nav className="max-w-4xl mx-auto px-6 py-4">
+    <header className="absolute top-0 left-0 right-0 z-50">
+      <nav className="container mx-auto px-6 lg:px-16 py-6">
         <div className="flex items-center justify-between">
-          {/* Logo */}
+          {/* Logo - KINFOLK style: uppercase, wide letter-spacing, tall serif */}
           <Link 
             href="/" 
-            className="text-lg font-bold text-black hover:text-[#8b4d3b] transition-colors"
+            className="font-serif text-sm md:text-base tracking-[0.3em] uppercase text-white hover:opacity-70 transition-opacity"
           >
             The Red Cardamom
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-10">
             <Link 
               href="/stories" 
-              className="text-sm font-medium text-gray-600 hover:text-black transition-colors"
+              className="text-xs tracking-[0.2em] uppercase text-white/70 hover:text-white transition-colors"
             >
               Stories
             </Link>
             <Link 
-              href="/map" 
-              className="text-sm font-medium text-gray-600 hover:text-black transition-colors"
-            >
-              Map
-            </Link>
-            <Link 
               href="/about" 
-              className="text-sm font-medium text-gray-600 hover:text-black transition-colors"
+              className="text-xs tracking-[0.2em] uppercase text-white/70 hover:text-white transition-colors"
             >
               About
             </Link>
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Menu Button - Kinfolk style hamburger */}
           <button
             onClick={() => setMenuOpen(!menuOpen)}
-            className="md:hidden text-black"
+            className="md:hidden text-white/80 hover:text-white transition-colors"
             aria-label={menuOpen ? 'Close menu' : 'Open menu'}
           >
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" strokeWidth="1.5">
               {menuOpen ? (
                 <>
-                  <line x1="4" y1="4" x2="20" y2="20" />
-                  <line x1="20" y1="4" x2="4" y2="20" />
+                  <line x1="6" y1="6" x2="22" y2="22" />
+                  <line x1="22" y1="6" x2="6" y2="22" />
                 </>
               ) : (
                 <>
-                  <line x1="3" y1="8" x2="21" y2="8" />
-                  <line x1="3" y1="16" x2="21" y2="16" />
+                  <line x1="4" y1="9" x2="24" y2="9" />
+                  <line x1="4" y1="19" x2="24" y2="19" />
                 </>
               )}
             </svg>
@@ -64,29 +58,24 @@ export default function Header() {
 
         {/* Mobile Menu */}
         {menuOpen && (
-          <div className="md:hidden pt-4 pb-2 border-t border-gray-100 mt-4">
-            <div className="flex flex-col gap-4">
-              <Link 
-                href="/stories" 
-                onClick={() => setMenuOpen(false)}
-                className="text-sm font-medium text-gray-700 hover:text-black transition-colors"
-              >
-                Stories
-              </Link>
-              <Link 
-                href="/map" 
-                onClick={() => setMenuOpen(false)}
-                className="text-sm font-medium text-gray-700 hover:text-black transition-colors"
-              >
-                Map
-              </Link>
-              <Link 
-                href="/about" 
-                onClick={() => setMenuOpen(false)}
-                className="text-sm font-medium text-gray-700 hover:text-black transition-colors"
-              >
-                About
-              </Link>
+          <div className="md:hidden absolute top-full left-0 right-0 bg-black/95 backdrop-blur-sm">
+            <div className="container mx-auto px-6 py-8">
+              <div className="flex flex-col gap-6">
+                <Link 
+                  href="/stories" 
+                  onClick={() => setMenuOpen(false)}
+                  className="text-sm tracking-[0.2em] uppercase text-white/80 hover:text-white transition-colors"
+                >
+                  Stories
+                </Link>
+                <Link 
+                  href="/about" 
+                  onClick={() => setMenuOpen(false)}
+                  className="text-sm tracking-[0.2em] uppercase text-white/80 hover:text-white transition-colors"
+                >
+                  About
+                </Link>
+              </div>
             </div>
           </div>
         )}
