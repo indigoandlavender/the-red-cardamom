@@ -44,7 +44,7 @@ body {
 
 .prose {
   font-family: var(--font-body);
-  font-size: 1.125rem;
+  font-size: 1rem;
   font-weight: 400;
   line-height: 1.8;
   color: #000;
@@ -57,7 +57,7 @@ body {
 }
 
 .prose p:first-of-type {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
 }
 
 .prose strong {
