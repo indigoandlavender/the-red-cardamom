@@ -36,9 +36,9 @@ export default function Footer() {
       {/* Links */}
       <div className="container mx-auto px-6 lg:px-16 py-16">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-10 md:gap-8">
-          {/* Brand - Kinfolk style masthead */}
+          {/* Brand - Instrument Serif masthead */}
           <div className="col-span-2 md:col-span-1">
-            <Link href="/" className="font-serif text-base font-medium tracking-[0.25em] uppercase text-white/90 hover:text-white transition-colors">
+            <Link href="/" className="font-serif text-base tracking-[0.35em] uppercase text-white/90 hover:text-white transition-colors">
               The Red Cardamom
             </Link>
             <p className="text-xs text-white/40 mt-4 leading-relaxed">

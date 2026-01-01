@@ -1,11 +1,11 @@
 import type { Metadata } from 'next'
-import { Bodoni_Moda, Space_Grotesk } from 'next/font/google'
+import { Instrument_Serif, Space_Grotesk } from 'next/font/google'
 import './globals.css'
 
-// Bodoni Moda - tall Didone serif like Kinfolk, bold and readable
-const bodoni = Bodoni_Moda({
+// Instrument Serif - elegant, breathable
+const instrumentSerif = Instrument_Serif({
   subsets: ['latin'],
-  weight: ['400', '500', '600', '700', '800', '900'],
+  weight: ['400'],
   style: ['normal', 'italic'],
   display: 'swap',
   variable: '--font-serif',
@@ -52,7 +52,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${bodoni.variable} ${spaceGrotesk.variable}`}>
+    <html lang="en" className={`${instrumentSerif.variable} ${spaceGrotesk.variable}`}>
       <body className="antialiased">{children}</body>
     </html>
   )

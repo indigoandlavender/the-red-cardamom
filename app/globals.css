@@ -3,9 +3,9 @@
 @tailwind utilities;
 
 :root {
-  /* The Red Cardamom */
-  --background: #f7f5f0;
-  --background-alt: #efeee8;
+  /* The Red Cardamom - All white backgrounds */
+  --background: #ffffff;
+  --background-alt: #ffffff;
   --foreground: #000000;
   --accent: #8b4d3b;
   --accent-dark: #6b3a2d;

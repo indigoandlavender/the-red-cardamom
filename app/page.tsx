@@ -23,7 +23,7 @@ export default async function Home() {
   const heroSubtitle = settings?.hero_subtitle || 'Food history, chemistry, and hospitality from Namibia to China';
 
   return (
-    <main className="min-h-screen bg-[#f7f5f0] text-[#1a1a1a]">
+    <main className="min-h-screen bg-white text-[#1a1a1a]">
       <Header />
 
       {/* Hero - Full viewport with story */}
@@ -172,7 +172,7 @@ export default async function Home() {
       )}
 
       {/* Pull Quote */}
-      <section className="py-20 md:py-28 bg-[#efeee8]">
+      <section className="py-20 md:py-28 bg-white">
         <div className="container mx-auto px-6 lg:px-16 max-w-3xl text-center">
           <p className="font-serif text-xl md:text-2xl lg:text-3xl leading-relaxed text-[#444] italic">
             "Every meal is a negotiation with the dead — the ancestors who selected these seeds, 
@@ -228,7 +228,7 @@ export default async function Home() {
 
       {/* Map Section */}
       {stories.length > 0 && (
-        <section className="py-20 md:py-28 bg-[#efeee8]">
+        <section className="py-20 md:py-28 bg-white">
           <div className="container mx-auto px-6 lg:px-16">
             <div className="flex items-center justify-between mb-10">
               <div>

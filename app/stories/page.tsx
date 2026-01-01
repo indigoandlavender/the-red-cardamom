@@ -70,7 +70,7 @@ export default async function StoriesPage({ searchParams }: PageProps) {
   }
 
   return (
-    <main className="min-h-screen bg-[#f7f5f0]">
+    <main className="min-h-screen bg-white">
       {/* Hero with dark background */}
       <div className="bg-black text-white">
         <Header />
@@ -225,7 +225,7 @@ export default async function StoriesPage({ searchParams }: PageProps) {
                   {stories.map((story) => (
                     <article key={story.slug} className="group">
                       <Link href={`/story/${story.slug}`}>
-                        <div className="relative aspect-[16/10] overflow-hidden mb-4 bg-[#e0ded8]">
+                        <div className="relative aspect-[16/10] overflow-hidden mb-4 bg-gray-100">
                           {story.heroImage && (
                             <Image
                               src={story.heroImage}

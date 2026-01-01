@@ -49,7 +49,7 @@ const prepareStoriesForMap = (stories: Array<{
 const StoryMap = dynamic(() => import('./StoryMap'), {
   ssr: false,
   loading: () => (
-    <div className="w-full h-[500px] md:h-[600px] bg-[#efeee8] flex items-center justify-center">
+    <div className="w-full h-[500px] md:h-[600px] bg-white flex items-center justify-center">
       <div className="text-[#888] text-sm">Loading map...</div>
     </div>
   ),
@@ -80,7 +80,7 @@ function MapFallback({ stories }: { stories: StoryMapWrapperProps['stories'] }) 
   const sortedCountries = Object.keys(byCountry).sort();
 
   return (
-    <div className="w-full bg-[#efeee8] px-6 py-12">
+    <div className="w-full bg-white px-6 py-12">
       <div className="max-w-4xl mx-auto">
         <p className="text-xs uppercase tracking-[0.2em] text-[#888] mb-8">
           Stories by Location
@@ -120,7 +120,7 @@ export default function StoryMapWrapper({ stories }: StoryMapWrapperProps) {
   // If no stories, show placeholder
   if (stories.length === 0) {
     return (
-      <div className="w-full h-[300px] bg-[#efeee8] flex items-center justify-center">
+      <div className="w-full h-[300px] bg-white flex items-center justify-center">
         <p className="text-[#888] text-sm">Stories will appear on the map once published</p>
       </div>
     );

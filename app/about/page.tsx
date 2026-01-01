@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <main className="min-h-screen bg-[#f7f5f0] text-[#1a1a1a]">
+    <main className="min-h-screen bg-white text-[#1a1a1a]">
       {/* Hero with dark background */}
       <div className="bg-[#1a1a1a] text-white">
         <Header />
@@ -61,7 +61,7 @@ export default function AboutPage() {
       </section>
 
       {/* Pull Quote */}
-      <section className="py-16 md:py-24 bg-[#efeee8]">
+      <section className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-6 lg:px-16 max-w-3xl text-center">
           <p className="font-serif text-xl md:text-2xl lg:text-3xl leading-relaxed text-[#444] italic">
             "Every meal is a negotiation with the dead — the ancestors who selected these seeds, 
@@ -107,7 +107,7 @@ export default function AboutPage() {
       </section>
 
       {/* What This Is Not */}
-      <section className="py-20 md:py-28 bg-[#efeee8]">
+      <section className="py-20 md:py-28 bg-white">
         <div className="container mx-auto px-6 lg:px-16 max-w-4xl">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16">
             <div>

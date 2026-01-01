@@ -61,7 +61,7 @@ export default async function StoryPage({ params }: PageProps) {
   const themes = story.theme ? story.theme.split(', ') : [];
 
   return (
-    <main className="min-h-screen bg-[#f7f5f0]">
+    <main className="min-h-screen bg-white">
       {/* CINEMATIC FULL-BLEED HERO */}
       <div className="relative">
         <Header />
