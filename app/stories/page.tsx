@@ -221,32 +221,40 @@ export default async function StoriesPage({ searchParams }: PageProps) {
                 <p className="text-xs text-black mb-8">
                   {stories.length} {stories.length === 1 ? 'story' : 'stories'}
                 </p>
-                <div className="grid md:grid-cols-2 gap-x-8 gap-y-12">
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                   {stories.map((story) => (
                     <article key={story.slug} className="group">
                       <Link href={`/story/${story.slug}`}>
-                        <div className="relative aspect-[16/10] overflow-hidden mb-4 bg-gray-100">
+                        {/* Tall vertical image like Slow Morocco */}
+                        <div className="relative aspect-[4/5] overflow-hidden mb-4 bg-[#f5f5f0]">
                           {story.heroImage && (
                             <Image
                               src={story.heroImage}
                               alt={story.title}
                               fill
-                              className="object-cover transition-transform duration-700 group-hover:scale-105"
+                              className="object-cover transition-transform duration-500 group-hover:scale-105"
                             />
                           )}
                         </div>
-                        <p className="text-[11px] tracking-[0.2em] uppercase text-black font-semibold mb-2">
-                          {story.category}
-                        </p>
-                        <h2 className="font-serif text-xl md:text-2xl mb-2 group-hover:opacity-60 transition-opacity">
+                        <div className="flex items-center gap-2 mb-2">
+                          <span className="text-xs uppercase tracking-wide text-black/50">
+                            {story.category}
+                          </span>
+                          {story.readTime && (
+                            <>
+                              <span className="text-black/30">·</span>
+                              <span className="text-xs text-black/40">
+                                {story.readTime} min
+                              </span>
+                            </>
+                          )}
+                        </div>
+                        <h2 className="font-serif text-xl mb-2 group-hover:opacity-60 transition-opacity">
                           {story.title}
                         </h2>
-                        <p className="text-sm text-black mb-2">
-                          {story.subtitle}
-                        </p>
-                        {story.country && (
-                          <p className="text-xs text-black">
-                            {story.country}
+                        {story.subtitle && (
+                          <p className="text-sm text-black/60 line-clamp-2">
+                            {story.subtitle}
                           </p>
                         )}
                       </Link>
