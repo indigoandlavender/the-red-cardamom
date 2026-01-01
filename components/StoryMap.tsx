@@ -137,7 +137,7 @@ export default function StoryMap({ stories }: StoryMapProps) {
 
     map.current = new mapboxgl.Map({
       container: mapContainer.current,
-      style: 'mapbox://styles/mapbox/dark-v11',
+      style: 'mapbox://styles/mapbox/light-v11',
       center: [50, 25], // Center on Middle East/Central Asia
       zoom: 2.5,
       minZoom: 1.5,
@@ -170,7 +170,7 @@ export default function StoryMap({ stories }: StoryMapProps) {
         el.className = 'story-marker';
         el.innerHTML = `
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-            <circle cx="12" cy="12" r="8" fill="#c4632d" stroke="#0a0a0a" stroke-width="2"/>
+            <circle cx="12" cy="12" r="8" fill="#6b7c63" stroke="#f7f5f0" stroke-width="2"/>
           </svg>
         `;
         el.style.cursor = 'pointer';

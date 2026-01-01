@@ -49,8 +49,8 @@ const prepareStoriesForMap = (stories: Array<{
 const StoryMap = dynamic(() => import('./StoryMap'), {
   ssr: false,
   loading: () => (
-    <div className="w-full h-[500px] md:h-[600px] bg-[#0d0d0d] flex items-center justify-center">
-      <div className="text-white/40 text-sm">Loading map...</div>
+    <div className="w-full h-[500px] md:h-[600px] bg-[#efeee8] flex items-center justify-center">
+      <div className="text-[#888] text-sm">Loading map...</div>
     </div>
   ),
 });
@@ -80,21 +80,21 @@ function MapFallback({ stories }: { stories: StoryMapWrapperProps['stories'] }) 
   const sortedCountries = Object.keys(byCountry).sort();
 
   return (
-    <div className="w-full bg-[#0d0d0d] px-6 py-12">
+    <div className="w-full bg-[#efeee8] px-6 py-12">
       <div className="max-w-4xl mx-auto">
-        <p className="text-xs uppercase tracking-[0.2em] text-white/40 mb-8">
+        <p className="text-xs uppercase tracking-[0.2em] text-[#888] mb-8">
           Stories by Location
         </p>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-6">
           {sortedCountries.map(country => (
             <div key={country}>
-              <h3 className="font-medium text-sm mb-2 text-white/80">{country}</h3>
+              <h3 className="font-medium text-sm mb-2 text-[#1a1a1a]">{country}</h3>
               <ul className="space-y-1">
                 {byCountry[country].map(story => (
                   <li key={story.slug}>
                     <Link 
                       href={`/story/${story.slug}`}
-                      className="text-sm text-white/50 hover:text-white transition-colors"
+                      className="text-sm text-[#666] hover:text-[#6b7c63] transition-colors"
                     >
                       {story.title}
                     </Link>
@@ -120,8 +120,8 @@ export default function StoryMapWrapper({ stories }: StoryMapWrapperProps) {
   // If no stories, show placeholder
   if (stories.length === 0) {
     return (
-      <div className="w-full h-[300px] bg-[#0d0d0d] flex items-center justify-center">
-        <p className="text-white/40 text-sm">Stories will appear on the map once published</p>
+      <div className="w-full h-[300px] bg-[#efeee8] flex items-center justify-center">
+        <p className="text-[#888] text-sm">Stories will appear on the map once published</p>
       </div>
     );
   }

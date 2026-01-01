@@ -1,19 +1,19 @@
 import type { Metadata } from 'next'
-import { Inter, Libre_Baskerville } from 'next/font/google'
+import { Space_Grotesk, Newsreader } from 'next/font/google'
 import './globals.css'
 
-const inter = Inter({
+const spaceGrotesk = Space_Grotesk({
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-inter',
+  variable: '--font-sans',
 })
 
-const libreBaskerville = Libre_Baskerville({
+const newsreader = Newsreader({
   subsets: ['latin'],
-  weight: ['400', '700'],
+  weight: ['400', '500', '600'],
   style: ['normal', 'italic'],
   display: 'swap',
-  variable: '--font-libre',
+  variable: '--font-serif',
 })
 
 export const metadata: Metadata = {
@@ -49,7 +49,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${libreBaskerville.variable}`}>
+    <html lang="en" className={`${spaceGrotesk.variable} ${newsreader.variable}`}>
       <body className="font-sans antialiased">{children}</body>
     </html>
   )
