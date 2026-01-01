@@ -1,11 +1,11 @@
 import type { Metadata } from 'next'
-import { Cormorant_Garamond, Space_Grotesk } from 'next/font/google'
+import { Bodoni_Moda, Space_Grotesk } from 'next/font/google'
 import './globals.css'
 
-// Cormorant Garamond - tall, elegant serif like Kinfolk
-const cormorant = Cormorant_Garamond({
+// Bodoni Moda - tall Didone serif like Kinfolk, bold and readable
+const bodoni = Bodoni_Moda({
   subsets: ['latin'],
-  weight: ['300', '400', '500', '600', '700'],
+  weight: ['400', '500', '600', '700', '800', '900'],
   style: ['normal', 'italic'],
   display: 'swap',
   variable: '--font-serif',
@@ -52,7 +52,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${cormorant.variable} ${spaceGrotesk.variable}`}>
+    <html lang="en" className={`${bodoni.variable} ${spaceGrotesk.variable}`}>
       <body className="antialiased">{children}</body>
     </html>
   )
