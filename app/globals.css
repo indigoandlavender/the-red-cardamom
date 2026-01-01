@@ -13,7 +13,7 @@
   --border: rgba(0, 0, 0, 0.1);
   
   /* Fonts */
-  --font-body: var(--font-body), Georgia, serif;
+  --font-body: var(--font-body), -apple-system, BlinkMacSystemFont, sans-serif;
   --font-serif: var(--font-serif), Georgia, serif;
 }
 
