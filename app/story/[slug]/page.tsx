@@ -107,8 +107,8 @@ export default async function StoryPage({ params }: PageProps) {
                 )}
               </div>
               
-              {/* Title - Instrument Serif, cinematic large */}
-              <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-[1.05] mb-6 max-w-5xl">
+              {/* Title - Instrument Serif, cinematic large, WHITE */}
+              <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-[1.05] mb-6 max-w-5xl text-white">
                 {story.title}
               </h1>
               
