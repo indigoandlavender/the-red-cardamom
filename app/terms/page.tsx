@@ -7,7 +7,7 @@ export const dynamic = 'force-dynamic'
 export const revalidate = 0
 
 export const metadata = {
-  title: 'Terms of Service — Dancing with Lions',
+  title: 'Terms of Service — The Red Cardamom',
 }
 
 export default async function TermsPage() {

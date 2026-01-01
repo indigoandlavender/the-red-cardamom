@@ -7,7 +7,7 @@ export const dynamic = 'force-dynamic'
 export const revalidate = 0
 
 export const metadata = {
-  title: 'Disclaimer — Dancing with Lions',
+  title: 'Disclaimer — The Red Cardamom',
 }
 
 export default async function DisclaimerPage() {

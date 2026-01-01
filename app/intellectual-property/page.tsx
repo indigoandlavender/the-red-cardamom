@@ -7,7 +7,7 @@ export const dynamic = 'force-dynamic'
 export const revalidate = 0
 
 export const metadata = {
-  title: 'Intellectual Property — Dancing with Lions',
+  title: 'Intellectual Property — The Red Cardamom',
 }
 
 export default async function IntellectualPropertyPage() {

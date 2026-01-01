@@ -7,7 +7,7 @@ export const dynamic = 'force-dynamic'
 export const revalidate = 0
 
 export const metadata = {
-  title: 'Privacy Policy — Dancing with Lions',
+  title: 'Privacy Policy — The Red Cardamom',
 }
 
 export default async function PrivacyPage() {
