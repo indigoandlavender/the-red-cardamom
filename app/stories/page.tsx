@@ -245,7 +245,7 @@ export default async function StoriesPage({ searchParams }: PageProps) {
                           {story.subtitle}
                         </p>
                         {story.country && (
-                          <p className="text-xs text-black/70">
+                          <p className="text-xs text-black">
                             {story.country}
                           </p>
                         )}

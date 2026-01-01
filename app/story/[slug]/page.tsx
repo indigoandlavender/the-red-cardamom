@@ -5,6 +5,8 @@ import { Metadata } from 'next';
 import { getStories, getStoryBySlug, getStoryImages, getRecipesByStory } from '@/lib/sheets';
 import StoryBody from '@/components/StoryBody';
 import Gallery from '@/components/Gallery';
+import SocialShare from '@/components/SocialShare';
+import MoreStories from '@/components/MoreStories';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
@@ -105,7 +107,7 @@ export default async function StoryPage({ params }: PageProps) {
                 )}
               </div>
               
-              {/* Title - Playfair Display, cinematic large */}
+              {/* Title - Instrument Serif, cinematic large */}
               <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-[1.05] mb-6 max-w-5xl">
                 {story.title}
               </h1>
@@ -124,12 +126,18 @@ export default async function StoryPage({ params }: PageProps) {
       {/* Article Body */}
       <article className="py-16 md:py-20">
         <div className="container mx-auto px-6 lg:px-16">
+          
+          {/* Social Share Icons - above content */}
+          <div className="max-w-3xl mx-auto mb-12">
+            <SocialShare title={story.title} />
+          </div>
+
           {/* Body with The Facts */}
           <div className="prose">
             <StoryBody content={story.body} theFacts={story.the_facts} />
           </div>
 
-          {/* Gallery */}
+          {/* Gallery - 2 column grid at end */}
           {galleryImages.length > 0 && (
             <div className="max-w-3xl mx-auto">
               <hr className="border-black my-16" />
@@ -207,7 +215,7 @@ export default async function StoryPage({ params }: PageProps) {
           <div className="max-w-3xl mx-auto">
             <hr className="border-black my-16" />
             <footer className="text-sm text-black flex flex-wrap gap-x-6 gap-y-1">
-              {story.textBy && <span>Text — {story.textBy}</span>}
+              {story.textBy && <span>Words — {story.textBy}</span>}
               {story.imagesBy && <span>Images — {story.imagesBy}</span>}
               {story.year && <span>{story.year}</span>}
             </footer>
@@ -216,7 +224,7 @@ export default async function StoryPage({ params }: PageProps) {
             <div className="mt-16">
               <Link
                 href="/stories"
-                className="inline-flex items-center gap-3 text-xs tracking-[0.15em] uppercase font-semibold text-black hover:opacity-60 transition-opacity"
+                className="inline-flex items-center gap-3 text-xs tracking-[0.15em] uppercase font-semibold text-black hover:opacity-50 transition-opacity"
               >
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5">
                   <polyline points="10,3 5,8 10,13" />
@@ -227,6 +235,9 @@ export default async function StoryPage({ params }: PageProps) {
           </div>
         </div>
       </article>
+
+      {/* MORE STORIES Section */}
+      <MoreStories currentSlug={params.slug} />
 
       <Footer />
     </main>

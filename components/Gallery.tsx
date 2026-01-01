@@ -35,21 +35,20 @@ export default function Gallery({ images }: GalleryProps) {
 
   return (
     <>
-      {/* Gallery Grid */}
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+      {/* Simple 2-column grid */}
+      <div className="grid grid-cols-2 gap-4">
         {images.map((image, index) => (
           <button
             key={index}
             onClick={() => openLightbox(index)}
-            className="relative aspect-square overflow-hidden bg-[#e8e6e0] cursor-pointer group"
+            className="relative aspect-[4/3] overflow-hidden bg-gray-100 cursor-pointer group"
           >
             <Image
               src={image.image_url}
               alt={image.caption || `Gallery image ${index + 1}`}
               fill
-              className="object-cover transition-transform duration-300 group-hover:scale-105"
+              className="object-cover transition-transform duration-500 group-hover:scale-105"
             />
-            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors" />
           </button>
         ))}
       </div>
