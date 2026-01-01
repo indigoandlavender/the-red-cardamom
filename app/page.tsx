@@ -84,25 +84,27 @@ export default async function HomePage() {
       </section>
 
       {/* Story Map */}
-      <section className="border-b border-[var(--border)]">
-        <div className="max-w-[1400px] mx-auto">
-          <div className="px-6 pt-12 pb-6">
-            <h2 className="text-xs uppercase tracking-[0.2em] text-[var(--muted)] mb-2">
-              Explore the Map
-            </h2>
-            <p className="text-[var(--foreground)]/70 text-sm">
-              Click a marker to read the story. Scroll to zoom.
-            </p>
+      {stories.length > 0 && (
+        <section className="border-b border-[var(--border)]">
+          <div className="max-w-[1400px] mx-auto">
+            <div className="px-6 pt-12 pb-6">
+              <h2 className="text-xs uppercase tracking-[0.2em] text-[var(--muted)] mb-2">
+                Explore the Map
+              </h2>
+              <p className="text-[var(--foreground)]/70 text-sm">
+                Click a marker to read the story. Scroll to zoom.
+              </p>
+            </div>
+            <StoryMapWrapper stories={stories.map(s => ({
+              slug: s.slug || '',
+              title: s.title || '',
+              subtitle: s.subtitle || '',
+              category: s.category || '',
+              country: s.country || '',
+            }))} />
           </div>
-          <StoryMapWrapper stories={stories.map(s => ({
-            slug: s.slug,
-            title: s.title,
-            subtitle: s.subtitle,
-            category: s.category,
-            country: s.country,
-          }))} />
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* Browse by Category */}
       <section className="py-16 border-b border-[var(--border)]">
