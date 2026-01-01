@@ -215,13 +215,13 @@ export async function getStoryImages(slug: string): Promise<StoryImage[]> {
     const rows = response.data.values;
     if (!rows || rows.length < 2) return [];
 
-    // Sheet columns: A=story_slug, B=image_url, C=caption, D=order, E=mj_prompt
+    // Sheet columns: A=story_slug, B=order, C=image_url, D=caption, E=mj_prompt
     const images = rows.slice(1)
       .map((row) => ({
         story_slug: row[0] || '',
-        image_url: row[1] || '',
-        caption: row[2] || '',
-        image_order: parseInt(row[3]) || 0,
+        image_order: parseInt(row[1]) || 0,
+        image_url: row[2] || '',
+        caption: row[3] || '',
       }))
       .filter((img) => img.story_slug === slug && img.image_url)
       .sort((a, b) => a.image_order - b.image_order);

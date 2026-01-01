@@ -35,26 +35,30 @@ export default function Gallery({ images }: GalleryProps) {
 
   return (
     <>
-      {/* 3-column grid with tall vertical images */}
+      {/* 3-column grid with vertical images - matches stories overview */}
       <div className="grid grid-cols-3 gap-4">
         {images.map((image, index) => (
           <button
             key={index}
-            onClick={() => openLightbox(index)}
-            className="relative aspect-[9/16] overflow-hidden bg-[#e8e6e0] cursor-pointer group"
+            onClick={() => image.image_url && openLightbox(index)}
+            className="relative aspect-[4/5] overflow-hidden bg-[#f5f5f0] cursor-pointer group"
           >
-            {image.image_url && (
+            {image.image_url ? (
               <Image
                 src={image.image_url}
                 alt={image.caption || `Gallery image ${index + 1}`}
                 fill
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
               />
+            ) : (
+              <div className="absolute inset-0 flex items-center justify-center">
+                <span className="text-black/20 text-xs">{index + 1}</span>
+              </div>
             )}
             {/* Caption overlay */}
-            {image.caption && (
-              <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/60 to-transparent">
-                <p className="text-white text-sm">{image.caption}</p>
+            {image.caption && image.image_url && (
+              <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black/60 to-transparent">
+                <p className="text-white text-xs">{image.caption}</p>
               </div>
             )}
           </button>
