@@ -35,20 +35,28 @@ export default function Gallery({ images }: GalleryProps) {
 
   return (
     <>
-      {/* Simple 2-column grid */}
-      <div className="grid grid-cols-2 gap-4">
+      {/* 3-column grid with tall vertical images */}
+      <div className="grid grid-cols-3 gap-4">
         {images.map((image, index) => (
           <button
             key={index}
             onClick={() => openLightbox(index)}
-            className="relative aspect-[4/3] overflow-hidden bg-gray-100 cursor-pointer group"
+            className="relative aspect-[9/16] overflow-hidden bg-[#e8e6e0] cursor-pointer group"
           >
-            <Image
-              src={image.image_url}
-              alt={image.caption || `Gallery image ${index + 1}`}
-              fill
-              className="object-cover transition-transform duration-500 group-hover:scale-105"
-            />
+            {image.image_url && (
+              <Image
+                src={image.image_url}
+                alt={image.caption || `Gallery image ${index + 1}`}
+                fill
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+            )}
+            {/* Caption overlay */}
+            {image.caption && (
+              <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/60 to-transparent">
+                <p className="text-white text-sm">{image.caption}</p>
+              </div>
+            )}
           </button>
         ))}
       </div>
