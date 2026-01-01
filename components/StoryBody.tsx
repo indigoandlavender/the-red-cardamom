@@ -6,23 +6,24 @@ interface StoryBodyProps {
 }
 
 export default function StoryBody({ content, theFacts }: StoryBodyProps) {
-  // Convert line breaks to proper paragraphs
+  // Handle <br><br> or \n\n as paragraph breaks
   const paragraphs = content
+    .replace(/<br><br>/gi, '\n\n')
+    .replace(/<br>/gi, '\n')
     .split(/\n\n+/)
     .filter((p) => p.trim())
     .map((p) => p.trim());
 
-  // Parse the_facts if provided
+  // Parse the_facts - pipe separated (|) format from Excel
   const facts = theFacts
     ? theFacts
-        .split('\n')
+        .split('|')
         .map((f) => f.trim())
-        .filter((f) => f && f.startsWith('-'))
-        .map((f) => f.substring(1).trim())
+        .filter(Boolean)
     : [];
 
   return (
-    <div className="prose">
+    <>
       {paragraphs.map((paragraph, index) => {
         // Check for blockquote (starts with >)
         if (paragraph.startsWith('>')) {
@@ -36,7 +37,7 @@ export default function StoryBody({ content, theFacts }: StoryBodyProps) {
         // Check for subheading (starts with ##)
         if (paragraph.startsWith('## ')) {
           return (
-            <h2 key={index} className="font-serif text-2xl mt-12 mb-6">
+            <h2 key={index}>
               {paragraph.substring(3).trim()}
             </h2>
           );
@@ -58,10 +59,8 @@ export default function StoryBody({ content, theFacts }: StoryBodyProps) {
 
       {/* The Facts Section */}
       {facts.length > 0 && (
-        <div className="the-facts mt-12">
-          <h3 className="text-xs uppercase tracking-[0.15em] text-[var(--muted)] mb-4 font-sans font-medium">
-            The Facts
-          </h3>
+        <div className="the-facts">
+          <h3>The Facts</h3>
           <ul>
             {facts.map((fact, index) => (
               <li key={index} dangerouslySetInnerHTML={{ 
@@ -73,6 +72,6 @@ export default function StoryBody({ content, theFacts }: StoryBodyProps) {
           </ul>
         </div>
       )}
-    </div>
+    </>
   );
 }

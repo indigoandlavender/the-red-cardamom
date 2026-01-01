@@ -1,14 +1,9 @@
 import type { Metadata } from 'next'
-import { Space_Grotesk, Newsreader } from 'next/font/google'
+import { Source_Serif_4 } from 'next/font/google'
 import './globals.css'
 
-const spaceGrotesk = Space_Grotesk({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-sans',
-})
-
-const newsreader = Newsreader({
+// Clean readable serif for articles - like what you'd find in a quality publication
+const sourceSerif = Source_Serif_4({
   subsets: ['latin'],
   weight: ['400', '500', '600'],
   style: ['normal', 'italic'],
@@ -49,8 +44,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${spaceGrotesk.variable} ${newsreader.variable}`}>
-      <body className="font-sans antialiased">{children}</body>
+    <html lang="en" className={sourceSerif.variable}>
+      <body className="antialiased">{children}</body>
     </html>
   )
 }
