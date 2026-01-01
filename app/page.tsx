@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { getStories, getFeaturedStories, getAllCategories, getAllRegions, getAllCountries } from '@/lib/sheets';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import StoryMapWrapper from '@/components/StoryMapWrapper';
 
 export const dynamic = 'force-dynamic';
 export const revalidate = 0;
@@ -79,6 +80,27 @@ export default async function HomePage() {
           <p className="text-center text-lg md:text-xl text-[var(--muted)] font-serif italic">
             Food history, chemistry, and hospitality from Namibia to China
           </p>
+        </div>
+      </section>
+
+      {/* Story Map */}
+      <section className="border-b border-[var(--border)]">
+        <div className="max-w-[1400px] mx-auto">
+          <div className="px-6 pt-12 pb-6">
+            <h2 className="text-xs uppercase tracking-[0.2em] text-[var(--muted)] mb-2">
+              Explore the Map
+            </h2>
+            <p className="text-[var(--foreground)]/70 text-sm">
+              Click a marker to read the story. Scroll to zoom.
+            </p>
+          </div>
+          <StoryMapWrapper stories={stories.map(s => ({
+            slug: s.slug,
+            title: s.title,
+            subtitle: s.subtitle,
+            category: s.category,
+            country: s.country,
+          }))} />
         </div>
       </section>
 
