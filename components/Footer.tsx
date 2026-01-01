@@ -143,6 +143,7 @@ export default function Footer() {
             </ul>
           </div>
         </div>
+        </div>
       </div>
 
       {/* Level 3: Legal - darkest (near black) */}
