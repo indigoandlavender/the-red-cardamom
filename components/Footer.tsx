@@ -14,9 +14,9 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-[#1a1a1a] text-white">
-      {/* Newsletter */}
-      <div className="border-b border-white/10">
+    <footer className="text-white">
+      {/* Level 1: Newsletter - lightest dark */}
+      <div className="bg-[#1f1f1f]">
         <div className="container mx-auto px-6 lg:px-16 py-16">
           <div className="max-w-xl">
             <p className="text-xs tracking-[0.25em] uppercase text-white/40 mb-4">
@@ -52,8 +52,9 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Links */}
-      <div className="container mx-auto px-6 lg:px-16 py-16">
+      {/* Level 2: Links - darker */}
+      <div className="bg-[#161616]">
+        <div className="container mx-auto px-6 lg:px-16 py-16">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-10 md:gap-8">
           {/* Brand */}
           <div className="col-span-2 md:col-span-1">
@@ -144,8 +145,8 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Legal Bar */}
-      <div className="border-t border-white/10">
+      {/* Level 3: Legal - darkest (near black) */}
+      <div className="bg-[#0e0e0e]">
         <div className="container mx-auto px-6 lg:px-16 py-6">
           {/* Legal links row */}
           <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 mb-4">
