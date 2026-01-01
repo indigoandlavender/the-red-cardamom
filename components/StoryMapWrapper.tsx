@@ -13,19 +13,31 @@ const prepareStoriesForMap = (stories: Array<{
   country: string;
 }>) => {
   const LOCATION_COORDINATES: Record<string, [number, number]> = {
+    // Middle East
     'Jordan': [36.2384, 31.9454],
     'Saudi Arabia': [45.0792, 23.8859],
     'Yemen': [48.5164, 15.5527],
     'Iran': [53.6880, 32.4279],
+    'Turkey': [35.2433, 38.9637],
+    // South Asia
     'India': [78.9629, 20.5937],
     'Pakistan': [69.3451, 30.3753],
     'Afghanistan': [67.7100, 33.9391],
+    // Southeast Asia
     'Indonesia': [113.9213, -0.7893],
+    // East Asia
     'China': [104.1954, 35.8617],
+    'Japan': [138.2529, 36.2048],
+    // Central Asia
     'Uzbekistan': [64.5853, 41.3775],
+    // Africa
     'Ethiopia': [40.4897, 9.1450],
     'Morocco': [-7.0926, 31.7917],
+    'Mali': [-3.9962, 17.5707],
+    // Americas
     'USA': [-95.7129, 37.0902],
+    'Brazil': [-51.9253, -14.2350],
+    // Europe
     'UK': [-3.4360, 55.3781],
     'Netherlands': [5.2913, 52.1326],
   };
