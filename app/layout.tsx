@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
-import { Instrument_Serif, Space_Grotesk } from 'next/font/google'
+import { Instrument_Serif, Nanum_Myeongjo } from 'next/font/google'
 import './globals.css'
 
-// Instrument Serif - elegant, breathable
+// Instrument Serif - elegant, breathable for titles
 const instrumentSerif = Instrument_Serif({
   subsets: ['latin'],
   weight: ['400'],
@@ -11,12 +11,12 @@ const instrumentSerif = Instrument_Serif({
   variable: '--font-serif',
 })
 
-// Space Grotesk for body text
-const spaceGrotesk = Space_Grotesk({
+// Nanum Myeongjo for body text
+const nanumMyeongjo = Nanum_Myeongjo({
   subsets: ['latin'],
-  weight: ['300', '400', '500', '600', '700'],
+  weight: ['400', '700', '800'],
   display: 'swap',
-  variable: '--font-sans',
+  variable: '--font-body',
 })
 
 export const metadata: Metadata = {
@@ -52,7 +52,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${instrumentSerif.variable} ${spaceGrotesk.variable}`}>
+    <html lang="en" className={`${instrumentSerif.variable} ${nanumMyeongjo.variable}`}>
       <body className="antialiased">{children}</body>
     </html>
   )
