@@ -1,14 +1,22 @@
 import type { Metadata } from 'next'
-import { Source_Serif_4 } from 'next/font/google'
+import { Playfair_Display, Space_Grotesk } from 'next/font/google'
 import './globals.css'
 
-// Clean readable serif for articles - like what you'd find in a quality publication
-const sourceSerif = Source_Serif_4({
+// Playfair Display for titles
+const playfair = Playfair_Display({
   subsets: ['latin'],
-  weight: ['400', '500', '600'],
+  weight: ['400', '500', '600', '700'],
   style: ['normal', 'italic'],
   display: 'swap',
   variable: '--font-serif',
+})
+
+// Space Grotesk for body text
+const spaceGrotesk = Space_Grotesk({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700'],
+  display: 'swap',
+  variable: '--font-sans',
 })
 
 export const metadata: Metadata = {
@@ -44,7 +52,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={sourceSerif.variable}>
+    <html lang="en" className={`${playfair.variable} ${spaceGrotesk.variable}`}>
       <body className="antialiased">{children}</body>
     </html>
   )
