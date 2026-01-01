@@ -10,10 +10,10 @@ export default function Header() {
     <header className="absolute top-0 left-0 right-0 z-50">
       <nav className="container mx-auto px-6 lg:px-16 py-6">
         <div className="flex items-center justify-between">
-          {/* Logo - Instrument Serif, wide tracking, breathable */}
+          {/* Logo - Instrument Serif, elegant title case */}
           <Link 
             href="/" 
-            className="font-serif text-lg md:text-xl tracking-[0.35em] uppercase text-white hover:opacity-70 transition-opacity"
+            className="font-serif text-2xl md:text-3xl tracking-[0.12em] text-white hover:opacity-70 transition-opacity"
           >
             The Red Cardamom
           </Link>
