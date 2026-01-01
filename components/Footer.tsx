@@ -1,6 +1,18 @@
+'use client';
+
 import Link from 'next/link';
+import { useState } from 'react';
 
 export default function Footer() {
+  const [email, setEmail] = useState('');
+  const [subscribed, setSubscribed] = useState(false);
+
+  const handleSubscribe = async (e: React.FormEvent) => {
+    e.preventDefault();
+    // TODO: Connect to newsletter API
+    setSubscribed(true);
+  };
+
   return (
     <footer className="bg-[#1a1a1a] text-white">
       {/* Newsletter */}
@@ -16,19 +28,26 @@ export default function Footer() {
             <p className="text-sm text-white/50 mb-6">
               Occasional dispatches from the archive. No spam, unsubscribe anytime.
             </p>
-            <form className="flex gap-3">
-              <input
-                type="email"
-                placeholder="your@email.com"
-                className="flex-1 bg-transparent border-b border-white/20 pb-2 text-sm text-white placeholder:text-white/30 focus:outline-none focus:border-white/50"
-              />
-              <button
-                type="submit"
-                className="text-xs tracking-[0.15em] uppercase text-white/60 hover:text-white transition-colors"
-              >
-                Subscribe
-              </button>
-            </form>
+            {subscribed ? (
+              <p className="text-sm text-white/70">Thank you for subscribing.</p>
+            ) : (
+              <form onSubmit={handleSubscribe} className="flex gap-3">
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="your@email.com"
+                  required
+                  className="flex-1 bg-transparent border-b border-white/20 pb-2 text-sm text-white placeholder:text-white/30 focus:outline-none focus:border-white/50"
+                />
+                <button
+                  type="submit"
+                  className="text-xs tracking-[0.15em] uppercase text-white/60 hover:text-white transition-colors"
+                >
+                  Subscribe
+                </button>
+              </form>
+            )}
           </div>
         </div>
       </div>
@@ -36,13 +55,13 @@ export default function Footer() {
       {/* Links */}
       <div className="container mx-auto px-6 lg:px-16 py-16">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-10 md:gap-8">
-          {/* Brand - Instrument Serif masthead */}
+          {/* Brand */}
           <div className="col-span-2 md:col-span-1">
             <Link href="/" className="font-serif text-xl tracking-[0.2em] uppercase text-white/90 hover:text-white transition-colors">
               The Red Cardamom
             </Link>
             <p className="text-xs text-white/40 mt-4 leading-relaxed">
-              Food history, chemistry, and hospitality from Namibia to China.
+              Food as history, chemistry, diplomacy, and hospitality. From Namibia to China.
             </p>
           </div>
 
@@ -78,7 +97,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link href="/stories" className="text-sm text-white/50 hover:text-white transition-colors">
-                  Stories
+                  All Stories
                 </Link>
               </li>
               <li>
@@ -102,12 +121,22 @@ export default function Footer() {
             <ul className="space-y-2">
               <li>
                 <Link href="/info/privacy" className="text-sm text-white/50 hover:text-white transition-colors">
-                  Privacy
+                  Privacy Policy
                 </Link>
               </li>
               <li>
                 <Link href="/info/terms" className="text-sm text-white/50 hover:text-white transition-colors">
-                  Terms
+                  Terms of Service
+                </Link>
+              </li>
+              <li>
+                <Link href="/info/disclaimer" className="text-sm text-white/50 hover:text-white transition-colors">
+                  Disclaimer
+                </Link>
+              </li>
+              <li>
+                <Link href="/info/intellectual-property" className="text-sm text-white/50 hover:text-white transition-colors">
+                  Intellectual Property
                 </Link>
               </li>
             </ul>
@@ -115,24 +144,57 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Copyright */}
+      {/* Legal Bar */}
       <div className="border-t border-white/10">
         <div className="container mx-auto px-6 lg:px-16 py-6">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-white/30">
-            <p>© {new Date().getFullYear()} The Red Cardamom</p>
-            <p>
-              A{' '}
-              <a 
-                href="https://dancingwithlions.com" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-white/40 hover:text-white/60 transition-colors"
-              >
-                Dancing with Lions
-              </a>
-              {' '}publication
-            </p>
+          {/* Legal links row */}
+          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 mb-4">
+            <Link href="/info/privacy" className="text-xs text-white/50 hover:text-white/80 transition-colors">
+              Privacy Policy
+            </Link>
+            <Link href="/info/terms" className="text-xs text-white/50 hover:text-white/80 transition-colors">
+              Terms of Service
+            </Link>
+            <Link href="/info/disclaimer" className="text-xs text-white/50 hover:text-white/80 transition-colors">
+              Disclaimer
+            </Link>
+            <Link href="/info/intellectual-property" className="text-xs text-white/50 hover:text-white/80 transition-colors">
+              Intellectual Property
+            </Link>
+            
+            {/* Separator */}
+            <span className="text-white/20">|</span>
+            
+            {/* Language selector */}
+            <button className="text-xs text-white/50 hover:text-white/80 transition-colors flex items-center gap-1">
+              <svg className="w-3 h-3" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5">
+                <circle cx="8" cy="8" r="6.5" />
+                <line x1="1.5" y1="8" x2="14.5" y2="8" />
+                <path d="M8 1.5C6 4 6 12 8 14.5" />
+                <path d="M8 1.5C10 4 10 12 8 14.5" />
+              </svg>
+              English
+            </button>
           </div>
+          
+          {/* Copyright */}
+          <p className="text-center text-xs text-white/40">
+            © {new Date().getFullYear()} The Red Cardamom. All rights reserved.
+          </p>
+          
+          {/* Parent brand */}
+          <p className="text-center text-xs text-white/30 mt-2">
+            A{' '}
+            <a 
+              href="https://dancingwithlions.com" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="hover:text-white/50 transition-colors"
+            >
+              Dancing with Lions
+            </a>
+            {' '}publication
+          </p>
         </div>
       </div>
     </footer>
