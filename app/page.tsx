@@ -4,6 +4,7 @@ import { getStories, getAllCategories, getSettings } from '@/lib/sheets';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import StoryMapWrapper from '@/components/StoryMapWrapper';
+import { WebsiteJsonLd } from '@/components/JsonLd';
 
 export const dynamic = 'force-dynamic';
 export const revalidate = 0;
@@ -24,6 +25,7 @@ export default async function Home() {
 
   return (
     <main className="min-h-screen bg-white text-[#1a1a1a]">
+      <WebsiteJsonLd />
       <Header />
 
       {/* Hero - Full viewport with story */}

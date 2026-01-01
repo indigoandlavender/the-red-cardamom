@@ -9,6 +9,7 @@ import SocialShare from '@/components/SocialShare';
 import MoreStories from '@/components/MoreStories';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import { ArticleJsonLd, BreadcrumbJsonLd } from '@/components/JsonLd';
 
 export const dynamic = 'force-dynamic';
 export const revalidate = 0;
@@ -26,16 +27,30 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const story = await getStoryBySlug(params.slug);
   if (!story) return { title: 'Story Not Found' };
   
-  const title = `${story.title} | The Red Cardamom`;
-  const description = story.excerpt || story.subtitle || story.title;
+  const title = story.title;
+  const description = story.subtitle || story.excerpt || `${story.title} - A story from The Red Cardamom`;
+  const url = `https://theredcardamom.com/story/${params.slug}`;
   
   return {
-    title: story.title,
+    title,
     description,
+    keywords: [story.category, story.country, story.theme, 'food history', 'spice trade'].filter(Boolean),
     openGraph: {
-      title,
+      title: `${title} | The Red Cardamom`,
       description,
-      images: story.heroImage ? [{ url: story.heroImage }] : undefined,
+      url,
+      type: 'article',
+      images: story.heroImage ? [{ url: story.heroImage, width: 1200, height: 630 }] : undefined,
+      siteName: 'The Red Cardamom',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${title} | The Red Cardamom`,
+      description,
+      images: story.heroImage ? [story.heroImage] : undefined,
+    },
+    alternates: {
+      canonical: url,
     },
   };
 }
@@ -64,6 +79,24 @@ export default async function StoryPage({ params }: PageProps) {
 
   return (
     <main className="min-h-screen bg-white">
+      {/* Structured Data */}
+      <ArticleJsonLd
+        title={story.title}
+        description={story.subtitle || story.excerpt || story.title}
+        url={`https://theredcardamom.com/story/${params.slug}`}
+        image={story.heroImage}
+        datePublished={story.year ? `${story.year}-01-01` : undefined}
+        author={story.textBy || 'Jacqueline Ng'}
+        category={story.category}
+      />
+      <BreadcrumbJsonLd
+        items={[
+          { name: 'Home', url: 'https://theredcardamom.com' },
+          { name: 'Stories', url: 'https://theredcardamom.com/stories' },
+          { name: story.title, url: `https://theredcardamom.com/story/${params.slug}` },
+        ]}
+      />
+      
       {/* CINEMATIC FULL-BLEED HERO */}
       <div className="relative">
         <Header />
